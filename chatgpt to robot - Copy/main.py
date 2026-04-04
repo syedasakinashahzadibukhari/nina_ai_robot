@@ -1,11 +1,14 @@
-from openai import OpenAI
-import os
+import pyttsx3
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Initialize engine once
+engine = pyttsx3.init()
 
-response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[{"role": "user", "content": "Hello"}]
-)
+# Optional: set properties
+voices = engine.getProperty('voices')  # List all voices
+engine.setProperty('voice', voices[1].id)  # Change index to select male/female
+engine.setProperty('rate', 150)          # Speed of speech (default ~200)
+engine.setProperty('volume', 1.0)        # Volume (0.0 to 1.0)
 
-print(response.choices[0].message.content)
+def speak(text):
+    engine.say(text)
+    engine.runAndWait()
