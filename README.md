@@ -9,5 +9,5 @@ Nina is a smart, interactive AI robot built using Python, designed to simulate h
 🛠️ Tech Stack
 🐍 Python
 🗣️ pyttsx3 (Text-to-Speech)
-🌐 OpenAI API (optional for advanced AI responses)
+🌐 OpenAI API 
 📦 python-dotenv for secure environment management
